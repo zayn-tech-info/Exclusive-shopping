@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/Styles/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <header>
+      <nav class="py-3">
+        <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+          <div class="relative flex h-16 items-center justify-between">
+            <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+              <!-- Mobile menu button-->
+              <button
+                type="button"
+                class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:ring-2 focus:ring-white focus:outline-hidden focus:ring-inset"
+                aria-controls="mobile-menu"
+                aria-expanded="false"
+              >
+                <span class="absolute -inset-0.5"></span>
+                <span class="sr-only">Open main menu</span>
+                <!--
+					  Icon when menu is closed.
+		  
+					  Menu open: "hidden", Menu closed: "block"
+					-->
+                <svg
+                  class="block size-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                  data-slot="icon"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                  />
+                </svg>
+                <!--
+					  Icon when menu is open.
+		  
+					  Menu open: "block", Menu closed: "hidden"
+					-->
+                <svg
+                  class="hidden size-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                  data-slot="icon"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6 18 18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            </div>
+            <div
+              class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-between"
+            >
+              <div class="flex shrink-0 items-center">
+                <a href="/Html/index.html" class="text-2xl font-medium"
+                  >Exclusive</a
+                >
+              </div>
+              <div class="hidden justify-center sm:ml-6 sm:block">
+                <div class="flex space-x-15 py-3">
+                  <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                  <a
+                    href="/Html/index.html"
+                    class="px-1 font-medium border-gray-300 border-b-2"
+                    aria-current="page"
+                    >Home</a
+                  >
+                  <a
+                    href="/Html/contact.html"
+                    class="px-1 font-medium border-gray-300 hover:border-b-2"
+                    >Contact</a
+                  >
+                  <a
+                    href="/Html/about.html"
+                    class="px-1 font-medium border-gray-300 hover:border-b-2"
+                    >About</a
+                  >
+                  <a
+                    href="/Html/signup.html"
+                    class="px-1 font-medium border-gray-300 hover:border-b-2"
+                    >Sign Up</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div
+              class="absolute inset-y-0 space-x-8 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"
+            >
+              <input
+                class="ml-5 px-2 w-60 rounded-md outline-hidden text-sm py-2 bg-gray-100"
+                type="text"
+                placeholder="What are you looking for?"
+              />
+              <button
+                type="button"
+                class="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden"
+              >
+                <span class="absolute -inset-1.5"></span>
+                
+                <span class="sr-only">View notifications</span>
+                <svg
+                  class="size-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                  data-slot="icon"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0"
+                  />
+                </svg>
+              </button>
+
+              <div>
+                <ion-icon class="text-3xl" name="heart-outline"></ion-icon>
+              </div>
+              
+              <div class="relative">
+                <ion-icon class="text-3xl" name="cart-outline"></ion-icon>
+                <div class="absolute bottom-7 left-5">
+                  <p class="bg-[#DB4444] text-white px-2 text-sm rounded-full">2</p>
+                </div>
+              </div>
+
+              <!-- Profile dropdown -->
+              <div class="relative ml-3">
+                <div>
+                  <button
+                    type="button"
+                    class="relative flex rounded-full bg-gray-800 text-sm focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden"
+                    id="user-menu-button"
+                    aria-expanded="false"
+                    aria-haspopup="true"
+                  >
+                    <span class="absolute -inset-1.5"></span>
+                    <span class="sr-only">Open user menu</span>
+                    <img
+                      class="size-8 rounded-full"
+                      src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                      alt=""
+                    />
+                  </button>
+                </div>
+
+                <!--
+					  Dropdown menu, show/hide based on menu state.
+		  
+					  Entering: "transition ease-out duration-100"
+						From: "transform opacity-0 scale-95"
+						To: "transform opacity-100 scale-100"
+					  Leaving: "transition ease-in duration-75"
+						From: "transform opacity-100 scale-100"
+						To: "transform opacity-0 scale-95"
+					-->
+                <div
+                  class="absolute right-0 z-10 mt-2 w-48 origin-top-right border-1 border-gray-500 rounded-md bg-gray-600 text-white py-1 ring-1 shadow-lg ring-black/5 hidden focus:outline-hidden"
+                  role="menu"
+                  aria-orientation="vertical"
+                  aria-labelledby="user-menu-button"
+                  tabindex="-1"
+                >
+                  <!-- Active: "bg-gray-100 outline-hidden", Not Active: "" -->
+                  <a
+                    href="#"
+                    class="block px-4 py-2 text-sm "
+                    role="menuitem"
+                    tabindex="-1"
+                    id="user-menu-item-0"
+                    >Manage My Account</a
+                  >
+                  <a
+                    href="#"
+                    class="block px-4 py-2 text-sm  "
+                    role="menuitem"
+                    tabindex="-1"
+                    id="user-menu-item-1"
+                    >My Orders</a
+                  >
+                  <a
+                    href="#"
+                    class="block px-4 py-2 text-sm  "
+                    role="menuitem"
+                    tabindex="-1"
+                    id="user-menu-item-2"
+                    >My Collections</a
+                  >
+                  <a
+                    href="#"
+                    class="block px-4 py-2 text-sm  "
+                    role="menuitem"
+                    tabindex="-1"
+                    id="user-menu-item-2"
+                    >My Reviews</a
+                  >
+                  <a
+                    href="#"
+                    class="block px-4 py-2 text-sm  "
+                    role="menuitem"
+                    tabindex="-1"
+                    id="user-menu-item-2"
+                    >Logout</a
+                  >   
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile menu, show/hide based on menu state. -->
+        <div class="sm:hidden" id="mobile-menu">
+          <div class="space-y-1 px-2 pt-2 pb-3">
+            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+            <a
+              href="#"
+              class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white"
+              aria-current="page"
+              >Dashboard</a
+            >
+            <a
+              href="#"
+              class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+              >Team</a
+            >
+            <a
+              href="#"
+              class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+              >Projects</a
+            >
+            <a
+              href="#"
+              class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+              >Calendar</a
+            >
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+      <div
+        class="hero-section border-t-1 gap-5 border-gray-300 grid grid-cols-4"
+      >
+        <div class="border-r-1 border-gray-300">
+          <ul class="flex flex-col font-medium text-md space-y-3 my-10">
+            <li><a href=""> Woman's Fashion > </a></li>
+            <li><a href=""> Men's Fashion > </a></li>
+            <li><a href=""> Electronics </a></li>
+            <li><a href=""> Home and LifeStyle </a></li>
+            <li><a href=""> Medicine </a></li>
+            <li><a href=""> Sport and Outdoor </a></li>
+            <li><a href="">Baby's and Toys</a></li>
+            <li><a href="">Groceries and Pets</a></li>
+            <li><a href="">Health & Beauty</a></li>
+          </ul>
+        </div>
+        <div class="col-span-3 border-1 m-10 bg-black">
+          <div class="grid grid-cols-2 py-3 text-white">
+            <div class="flex justify-center">
+              <div class="py-7 space-y-10 justify-center">
+                <div class="flex items-center gap-5">
+                  <img
+                    src="/Images/Hero section/apple-logo.png"
+                    alt="apple-icon"
+                  />
+                  <p class="text-md font-sm">iPhone 14 Series</p>
+                </div>
+                <div class="text-5xl font-bold">
+                  <p>
+                    Up to 10% <br />
+                    off Voucher
+                  </p>
+                </div>
+                <button class="border-gray-600 text-2xl border-b-2">
+                  <a href="">Shop Now</a>
+                </button>
+              </div>
+            </div>
+            <div class="flex justify-center">
+              <img src="/Images/Hero section/iPhone-14.png" alt="!phone-14" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Flash sales Product -->
+    <section
+      class="mx-auto border-b-2 pb-10 border-gray-300 max-w-7xl mb-10 px-2 sm:px-6 lg:px-8 mt-25"
+    >
+      <div>
+        <div
+          class="text-[#DB4444] rounded-sm text-md border-l-15 round pl-4 py-2 font-medium"
+        >
+          <p>Today's</p>
+        </div>
+        <div class="flex gap-30 items-end">
+          <p class="text-4xl font-medium">Flash Sales</p>
+          <div
+            class="flash-sales-count-down items-center font-medium flex gap-5"
+          >
+            <div class="days">
+              <p>Days</p>
+              <p class="text-3xl font-bold">03</p>
+            </div>
+            <p class="text-3xl text-[#DB4444]">:</p>
+            <div class="hours">
+              <p>Hours</p>
+              <p class="text-3xl font-bold">23</p>
+            </div>
+            <p class="text-3xl text-[#DB4444]">:</p>
+            <div class="minutes">
+              <p>Minutes</p>
+              <p class="text-3xl font-bold">19</p>
+            </div>
+            <p class="text-3xl text-[#DB4444]">:</p>
+            <div class="seconds">
+              <p>Seconds</p>
+              <p class="text-3xl font-bold">56</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="my-10">
+        <div class="grid gap-10 grid-cols-4">
+          <div>
+            <div class="bg-gray-100 group">
+              <div class="relative pt-10 px-10 mx-auto">
+                <div>
+                  <div class="h-43 flex justify-center items-center">
+                    <img class="p-3" src="/Images/Products/game-pad.png" />
+                  </div>
+                  <span>
+                    <span
+                      class="absolute top-3 left-5 bg-[#DB4444] text-white px-3 rounded-md py-1"
+                      >-40%</span
+                    >
+                  </span>
+                  <div
+                    class="absolute text-black right-3 flex text-xl space-y-5 flex-col top-3"
+                  >
+                    <ion-icon
+                      class="bg-white rounded-full p-1"
+                      name="eye-outline"
+                    ></ion-icon>
+                    <ion-icon
+                      class="bg-white rounded-full p-1"
+                      name="heart-outline"
+                    ></ion-icon>
+                  </div>
+                </div>
+              </div>
+              <button
+                class="flex justify-center opacity-0 rounded-b-md bg-black w-1/1 text-white py-2 group-hover:opacity-100 transition-group-hover:block duration-300 ease-in-out"
+              >
+                Add To Cart
+              </button>
+            </div>
+            <div class="Product-detail mt-2 space-y-1">
+              <p class="font-medium">HAVIT HV-G92 Gamepad</p>
+              <div class="flex gap-5">
+                <span class="font-medium text-[#DB4444]">$120</span>
+                <span class="line-through font-medium text-gray-500">$160</span>
+              </div>
+              <img src="/Images/Products/rate-4.5-star-75.png" alt="" />
+            </div>
+          </div>
+          <div>
+            <div class="bg-gray-100 group">
+              <div class="relative pt-10 px-10 mx-auto">
+                <div>
+                  <div class="h-43 flex justify-cente items-center">
+                    <img class="p-3" src="/Images/Products/Keyboard.png" />
+                  </div>
+                  <span>
+                    <span
+                      class="absolute top-3 left-5 bg-[#DB4444] text-white px-3 rounded-md py-1"
+                      >-35%</span
+                    >
+                  </span>
+                  <div
+                    class="absolute text-black right-3 flex text-xl space-y-5 flex-col top-3"
+                  >
+                    <ion-icon
+                      class="bg-white rounded-full p-1"
+                      name="eye-outline"
+                    ></ion-icon>
+                    <ion-icon
+                      class="bg-white rounded-full p-1"
+                      name="heart-outline"
+                    ></ion-icon>
+                  </div>
+                </div>
+              </div>
+              <button
+                class="flex justify-center opacity-0 rounded-b-md bg-black w-1/1 text-white py-2 group-hover:opacity-100 transition-group-hover:block duration-300 ease-in-out"
+              >
+                Add To Cart
+              </button>
+            </div>
+            <div class="Product-detail mt-2 space-y-1">
+              <p class="font-medium">AK-900 Wired Keyboard</p>
+              <div class="flex gap-5">
+                <span class="font-medium text-[#DB4444]">$960</span>
+                <span class="line-through font-medium text-gray-500"
+                  >$1160</span
+                >
+              </div>
+              <img src="/Images/Products/rate-5-star-89.png" />
+            </div>
+          </div>
+          <div>
+            <div class="bg-gray-100 group">
+              <div class="relative pt-10 px-10 mx-auto">
+                <div>
+                  <div class="h-43 justify-cente flex items-center">
+                    <img class="p-3" src="/Images/Products/Monitor.png" />
+                  </div>
+                  <span>
+                    <span
+                      class="absolute top-3 left-5 bg-[#DB4444] text-white px-3 rounded-md py-1"
+                      >-30%</span
+                    >
+                  </span>
+                  <div
+                    class="absolute text-black right-3 flex text-xl space-y-5 flex-col top-3"
+                  >
+                    <ion-icon
+                      class="bg-white rounded-full p-1"
+                      name="eye-outline"
+                    ></ion-icon>
+                    <ion-icon
+                      class="bg-white rounded-full p-1"
+                      name="heart-outline"
+                    ></ion-icon>
+                  </div>
+                </div>
+              </div>
+              <button
+                class="flex justify-center opacity-0 rounded-b-md bg-black w-1/1 text-white py-2 group-hover:opacity-100 transition-group-hover:block duration-300 ease-in-out"
+              >
+                Add To Cart
+              </button>
+            </div>
+            <div class="Product-detail mt-2 space-y-1">
+              <p class="font-medium">IPS LCD Gaming Monitor</p>
+              <div class="flex gap-5">
+                <span class="font-medium text-[#DB4444]">$370</span>
+                <span class="line-through font-medium text-gray-500">$400</span>
+              </div>
+              <img src="/Images/Products/rate-5-star.png" alt="" />
+            </div>
+          </div>
+          <div>
+            <div class="bg-gray-100 group">
+              <div class="relative pt-10 px-10 mx-auto">
+                <div>
+                  <div class="h-43 flex justify-center items-center">
+                    <img class="p-3" src="/Images/Products/Comfort-chair.png" />
+                  </div>
+                  <span>
+                    <span
+                      class="absolute top-3 left-5 bg-[#DB4444] text-white px-3 rounded-md py-1"
+                      >-25%</span
+                    >
+                  </span>
+                  <div
+                    class="absolute text-black right-3 flex text-xl space-y-5 flex-col top-3"
+                  >
+                    <ion-icon
+                      class="bg-white rounded-full p-1"
+                      name="eye-outline"
+                    ></ion-icon>
+                    <ion-icon
+                      class="bg-white rounded-full p-1"
+                      name="heart-outline"
+                    ></ion-icon>
+                  </div>
+                </div>
+              </div>
+              <button
+                class="flex justify-center opacity-0 rounded-b-md bg-black w-1/1 text-white py-2 group-hover:opacity-100 transition-group-hover:block duration-300 ease-in-out"
+              >
+                Add To Cart
+              </button>
+            </div>
+            <div class="Product-detail mt-2 space-y-1">
+              <p class="font-medium">S-Series Comfort Chair</p>
+              <div class="flex gap-5">
+                <span class="font-medium text-[#DB4444]">$20</span>
+                <span class="line-through font-medium text-gray-500">$190</span>
+              </div>
+              <img src="/Images/Products/rate-4.5-star-75.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="bg-[#DB4444] rounded-md mx-auto mt-20 flex w-70 p-4 text-white font-medium text-xl content-center"
+      >
+        <span class="inline-block mx-auto">View All Products</span>
+      </div>
+    </section>
+
+    <!-- Categories -->
+    <section
+      class="mx-auto border-b-2 pb-15 border-gray-300 max-w-7xl mb-10 px-2 sm:px-6 lg:px-8 mt-25"
+    >
+      <div class="categories">
+        <div
+          class="text-[#DB4444] rounded-sm text-md border-l-15 round pl-4 py-2 font-medium"
+        >
+          <p>Categories</p>
+        </div>
+        <div class="text-4xl mt-5 font-medium">
+          <p>Browse By Category</p>
+        </div>
+        <div class="grid grid-cols-6 gap-10 mt-10">
+          <div
+            class="px-7 cursor-pointer py-5 border-2 font-sm space-y-2 border-gray-300 flex-col flex justify-center rounded-md items-center hover:text-white hover:bg-[#DB4444] hover:border-[#DB4444] group transition-group-hover ease-in-out duration-400"
+          >
+            <img
+              class="group-hover:invert"
+              src="/Images/Products/Category-CellPhone.png"
+              alt=""
+            />
+            <p>Phones</p>
+          </div>
+          <div
+            class="px-7 cursor-pointer py-5 border-2 font-sm space-y-2 border-gray-300 flex-col flex justify-center rounded-md items-center hover:text-white hover:bg-[#DB4444] hover:border-[#DB4444] group transition-group-hover ease-in-out duration-400"
+          >
+            <img
+              class="group-hover:invert"
+              src="/Images/Products/Category-Computer.png"
+              alt=""
+            />
+            <p>Computer</p>
+          </div>
+          <div
+            class="px-7 cursor-pointer py-5 border-2 font-sm space-y-2 border-gray-300 flex-col flex justify-center rounded-md items-center hover:text-white hover:bg-[#DB4444] hover:border-[#DB4444] group transition-group-hover ease-in-out duration-400"
+          >
+            <img
+              class="group-hover:invert"
+              src="/Images/Products/Category-SmartWatch.png"
+              alt=""
+            />
+            <p>SmartWatch</p>
+          </div>
+          <div
+            class="px-7 cursor-pointer py-5 border-2 font-sm space-y-2 border-gray-300 flex-col flex justify-center rounded-md items-center hover:text-white hover:bg-[#DB4444] hover:border-[#DB4444] group transition-group-hover ease-in-out duration-400"
+          >
+            <img
+              class="group-hover:invert"
+              src="/Images/Products/Category-CellPhone.png"
+              alt=""
+            />
+            <p>Phones</p>
+          </div>
+          <div
+            class="px-7 cursor-pointer py-5 border-2 font-sm space-y-2 border-gray-300 flex-col flex justify-center rounded-md items-center hover:text-white hover:bg-[#DB4444] hover:border-[#DB4444] group transition-group-hover ease-in-out duration-400"
+          >
+            <img
+              class="invert group-hover"
+              src="/Images/Products/Category-Camera.png"
+              alt=""
+            />
+            <p>Camera</p>
+          </div>
+          <div
+            class="px-7 cursor-pointer py-5 border-2 font-sm space-y-2 border-gray-300 flex-col flex justify-center rounded-md items-center hover:text-white hover:bg-[#DB4444] hover:border-[#DB4444] group transition-group-hover ease-in-out duration-400"
+          >
+            <img
+              class="group-hover:invert"
+              src="/Images/Products/Category-Headphone.png"
+              alt=""
+            />
+            <p>HeadPhones</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Best Selling Products -->
+    <section
+      class="mx-auto border-b-2 pb-15 border-gray-300 max-w-7xl mb-10 px-2 sm:px-6 lg:px-8 mt-25"
+    >
+      <div class="best-selling-products">
+        <div
+          class="text-[#DB4444] rounded-sm text-md border-l-15 round pl-4 py-2 font-medium"
+        >
+          <p>This Month</p>
+        </div>
+        <div class="flex items-center justify-between">
+          <p class="text-4xl mt-5 font-medium">Browse By Category</p>
+          <button
+            class="w-35 py-3 rounded-md bg-[#DB4444] text-white font-medium"
+          >
+            View All
+          </button>
+        </div>
+      </div>
+
+      <div class="my-10">
+        <div class="grid gap-10 grid-cols-4">
+          <div>
+            <div class="bg-gray-100 group">
+              <div class="relative pt-10 px-10 mx-auto">
+                <div>
+                  <div class="h-43 flex justify-center items-center">
+                    <img
+                      class="p-3"
+                      src="/Images/Products/the noat cloth.png"
+                    />
+                  </div>
+                  <!-- <span>
+                    <span
+                      class="absolute top-3 left-5 bg-[#DB4444] text-white px-3 rounded-md py-1"
+                      >-40%</span
+                    >
+                  </span> -->
+                  <div
+                    class="absolute text-black right-3 flex text-xl space-y-5 flex-col top-3"
+                  >
+                    <ion-icon
+                      class="bg-white rounded-full p-1"
+                      name="eye-outline"
+                    ></ion-icon>
+                    <ion-icon
+                      class="bg-white rounded-full p-1"
+                      name="heart-outline"
+                    ></ion-icon>
+                  </div>
+                </div>
+              </div>
+              <button
+                class="flex justify-center opacity-0 rounded-b-md bg-black w-1/1 text-white py-2 group-hover:opacity-100 transition-group-hover:block duration-300 ease-in-out"
+              >
+                Add To Cart
+              </button>
+            </div>
+            <div class="Product-detail mt-2 space-y-1">
+              <p class="font-medium">The north coat</p>
+              <div class="flex gap-5">
+                <span class="font-medium text-[#DB4444]">$120</span>
+                <span class="line-through font-medium text-gray-500">$160</span>
+              </div>
+              <img src="/Images/Products/rate-4.5-star-75.png" alt="" />
+            </div>
+          </div>
+          <div>
+            <div class="bg-gray-100 group">
+              <div class="relative pt-10 px-10 mx-auto">
+                <div>
+                  <div class="h-43 flex justify-cente items-center">
+                    <img
+                      class="p-3"
+                      src="/Images/Products/Gucci duffle bag.png"
+                    />
+                  </div>
+                  <!-- <span>
+                    <span
+                      class="absolute top-3 left-5 bg-[#DB4444] text-white px-3 rounded-md py-1"
+                      >-35%</span
+                    >
+                  </span> -->
+                  <div
+                    class="absolute text-black right-3 flex text-xl space-y-5 flex-col top-3"
+                  >
+                    <ion-icon
+                      class="bg-white rounded-full p-1"
+                      name="eye-outline"
+                    ></ion-icon>
+                    <ion-icon
+                      class="bg-white rounded-full p-1"
+                      name="heart-outline"
+                    ></ion-icon>
+                  </div>
+                </div>
+              </div>
+              <button
+                class="flex justify-center opacity-0 rounded-b-md bg-black w-1/1 text-white py-2 group-hover:opacity-100 transition-group-hover:block duration-300 ease-in-out"
+              >
+                Add To Cart
+              </button>
+            </div>
+            <div class="Product-detail mt-2 space-y-1">
+              <p class="font-medium">Gucci duffle bag</p>
+              <div class="flex gap-5">
+                <span class="font-medium text-[#DB4444]">$960</span>
+                <span class="line-through font-medium text-gray-500"
+                  >$1160</span
+                >
+              </div>
+              <img src="/Images/Products/rate-5-star-89.png" />
+            </div>
+          </div>
+          <div>
+            <div class="bg-gray-100 group">
+              <div class="relative pt-10 px-10 mx-auto">
+                <div>
+                  <div class="h-43 justify-cente flex items-center">
+                    <img
+                      class="p-3"
+                      src="/Images/Products/RGB liquid CPU Cooler.png"
+                    />
+                  </div>
+                  <!-- <span>
+                    <span
+                      class="absolute top-3 left-5 bg-[#DB4444] text-white px-3 rounded-md py-1"
+                      >-30%</span
+                    >
+                  </span> -->
+                  <div
+                    class="absolute text-black right-3 flex text-xl space-y-5 flex-col top-3"
+                  >
+                    <ion-icon
+                      class="bg-white rounded-full p-1"
+                      name="eye-outline"
+                    ></ion-icon>
+                    <ion-icon
+                      class="bg-white rounded-full p-1"
+                      name="heart-outline"
+                    ></ion-icon>
+                  </div>
+                </div>
+              </div>
+              <button
+                class="flex justify-center opacity-0 rounded-b-md bg-black w-1/1 text-white py-2 group-hover:opacity-100 transition-group-hover:block duration-300 ease-in-out"
+              >
+                Add To Cart
+              </button>
+            </div>
+            <div class="Product-detail mt-2 space-y-1">
+              <p class="font-medium">RGB liquid CPU Cooler</p>
+              <div class="flex gap-5">
+                <span class="font-medium text-[#DB4444]">$370</span>
+                <span class="line-through font-medium text-gray-500">$400</span>
+              </div>
+              <img src="/Images/Products/rate-5-star.png" alt="" />
+            </div>
+          </div>
+          <div>
+            <div class="bg-gray-100 group">
+              <div class="relative pt-10 px-10 mx-auto">
+                <div>
+                  <div class="h-43 flex justify-center items-center">
+                    <img
+                      class="p-3"
+                      src="/Images/Products/Small BookSelf.png"
+                    />
+                  </div>
+                  <!-- <span>
+                    <span
+                      class="absolute top-3 left-5 bg-[#DB4444] text-white px-3 rounded-md py-1"
+                      >-25%</span
+                    >
+                  </span> -->
+                  <div
+                    class="absolute text-black right-3 flex text-xl space-y-5 flex-col top-3"
+                  >
+                    <ion-icon
+                      class="bg-white rounded-full p-1"
+                      name="eye-outline"
+                    ></ion-icon>
+                    <ion-icon
+                      class="bg-white rounded-full p-1"
+                      name="heart-outline"
+                    ></ion-icon>
+                  </div>
+                </div>
+              </div>
+              <button
+                class="flex justify-center opacity-0 rounded-b-md bg-black w-1/1 text-white py-2 group-hover:opacity-100 transition-group-hover:block duration-300 ease-in-out"
+              >
+                Add To Cart
+              </button>
+            </div>
+            <div class="Product-detail mt-2 space-y-1">
+              <p class="font-medium">Small BookSelf</p>
+              <div class="flex gap-5">
+                <span class="font-medium text-[#DB4444]">$20</span>
+                <span class="line-through font-medium text-gray-500">$190</span>
+              </div>
+              <img src="/Images/Products/rate-4.5-star-75.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Enhance Your Music Experience -->
+    <section class="mx-auto pb-15 max-w-7xl mb-10 px-2 sm:px-6 lg:px-8 mt-25">
+      <div class="music-experience bg-black text-white p-15">
+        <div class="grid grid-cols-2">
+          <div class="space-y-8">
+            <p class="text-[#00FF66] font-medium">Categories</p>
+            <p class="text-white text-5xl font-bold">
+              Enhance Your <br />
+              Music Experience
+            </p>
+            <div class="flex gap-5 items-center font-medium">
+              <div
+                class="flex flex-col bg-white items-center text-black items-center p-4 px-5 rounded-full"
+              >
+                <p class="text-xl">23</p>
+                <p>Hours</p>
+              </div>
+              <div
+                class="flex flex-col bg-white text-black p-4 px-6 items-center rounded-full"
+              >
+                <p class="text-xl">05</p>
+                <p>Days</p>
+              </div>
+              <div
+                class="flex flex-col bg-white text-black p-4 px-3 items-center rounded-full"
+              >
+                <p class="text-xl">55</p>
+                <p>Minutes</p>
+              </div>
+              <div
+                class="flex flex-col bg-white text-black items-center p-4 px-3 rounded-full"
+              >
+                <p class="text-xl">35</p>
+                <p>Seconds</p>
+              </div>
+            </div>
+            <button
+              class="bg-[#00FF66] rounded-md text-xl font-bold text-black px-12 py-4"
+            >
+              Buy Now!
+            </button>
+          </div>
+
+          <div>
+            <img
+              src="/Images/Products/JBL.png"
+              alt="JBL Speaker"
+              class="drop-shadow-[0_10px_150px_rgba(255,255,255,0.8)] w-1/1"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Products -->
+    <section
+      class="mx-auto pb-5 max-w-7xl mb-10 px-2 sm:px-6 lg:px-8 mt-25"
+    >
+      <div class="best-selling-products">
+        <div
+          class="text-[#DB4444] rounded-sm text-md border-l-15 round pl-4 py-2 font-medium"
+        >
+          <p>Our Products</p>
+        </div>
+        <div class="flex items-center justify-between">
+          <p class="text-4xl mt-5 font-medium">Explore Our Products</p>
+          <button
+            class="w-35 py-3 rounded-md bg-[#DB4444] text-white font-medium"
+          >
+            View All
+          </button>
+        </div>
+      </div>
+
+      <div class="my-10">
+        <div class="grid gap-10 grid-cols-4">
+          <div>
+            <div class="bg-gray-100 group">
+              <div class="relative pt-10 px-10 mx-auto">
+                <div>
+                  <div class="h-43 flex justify-center items-center">
+                    <img class="p-3" src="/Images/Products/Dog food.png" />
+                  </div>
+                  <!-- <span>
+                    <span
+                      class="absolute top-3 left-5 bg-[#DB4444] text-white px-3 rounded-md py-1"
+                      >-40%</span
+                    >
+                  </span> -->
+                  <div
+                    class="absolute text-black right-3 flex text-xl space-y-5 flex-col top-3"
+                  >
+                    <ion-icon
+                      class="bg-white rounded-full p-1"
+                      name="eye-outline"
+                    ></ion-icon>
+                    <ion-icon
+                      class="bg-white rounded-full p-1"
+                      name="heart-outline"
+                    ></ion-icon>
+                  </div>
+                </div>
+              </div>
+              <button
+                class="flex justify-center opacity-0 rounded-b-md bg-black w-1/1 text-white py-2 group-hover:opacity-100 transition-group-hover:block duration-300 ease-in-out"
+              >
+                Add To Cart
+              </button>
+            </div>
+            <div class="Product-detail mt-2 space-y-1">
+              <p class="font-medium">Breed Dry Dog Food</p>
+              <div class="flex gap-5">
+                <span class="font-medium text-[#DB4444]">$120</span>
+                <span class="line-through font-medium text-gray-500">$160</span>
+              </div>
+              <img src="/Images/Products/rate-4.5-star-75.png" alt="" />
+            </div>
+          </div>
+          <div>
+            <div class="bg-gray-100 group">
+              <div class="relative pt-10 px-10 mx-auto">
+                <div>
+                  <div class="h-43 flex justify-center items-center">
+                    <img class="p-3" src="/Images/Products/DLSR camera.png" />
+                  </div>
+                  <!-- <span>
+                    <span
+                      class="absolute top-3 left-5 bg-[#DB4444] text-white px-3 rounded-md py-1"
+                      >-40%</span
+                    >
+                  </span> -->
+                  <div
+                    class="absolute text-black right-3 flex text-xl space-y-5 flex-col top-3"
+                  >
+                    <ion-icon
+                      class="bg-white rounded-full p-1"
+                      name="eye-outline"
+                    ></ion-icon>
+                    <ion-icon
+                      class="bg-white rounded-full p-1"
+                      name="heart-outline"
+                    ></ion-icon>
+                  </div>
+                </div>
+              </div>
+              <button
+                class="flex justify-center opacity-0 rounded-b-md bg-black w-1/1 text-white py-2 group-hover:opacity-100 transition-group-hover:block duration-300 ease-in-out"
+              >
+                Add To Cart
+              </button>
+            </div>
+            <div class="Product-detail mt-2 space-y-1">
+              <p class="font-medium">CANON EOS DSLR Camera</p>
+              <div class="flex gap-5">
+                <span class="font-medium text-[#DB4444]">$120</span>
+                <span class="line-through font-medium text-gray-500">$160</span>
+              </div>
+              <img src="/Images/Products/rate-4.5-star-75.png" alt="" />
+            </div>
+          </div>
+          <div>
+            <div class="bg-gray-100 group">
+              <div class="relative pt-10 px-10 mx-auto">
+                <div>
+                  <div class="h-43 flex justify-center items-center">
+                    <img class="p-3" src="/Images/Products/Gaming Laptop.png" />
+                  </div>
+                  <!-- <span>
+                    <span
+                      class="absolute top-3 left-5 bg-[#DB4444] text-white px-3 rounded-md py-1"
+                      >-40%</span
+                    >
+                  </span> -->
+                  <div
+                    class="absolute text-black right-3 flex text-xl space-y-5 flex-col top-3"
+                  >
+                    <ion-icon
+                      class="bg-white rounded-full p-1"
+                      name="eye-outline"
+                    ></ion-icon>
+                    <ion-icon
+                      class="bg-white rounded-full p-1"
+                      name="heart-outline"
+                    ></ion-icon>
+                  </div>
+                </div>
+              </div>
+              <button
+                class="flex justify-center opacity-0 rounded-b-md bg-black w-1/1 text-white py-2 group-hover:opacity-100 transition-group-hover:block duration-300 ease-in-out"
+              >
+                Add To Cart
+              </button>
+            </div>
+            <div class="Product-detail mt-2 space-y-1">
+              <p class="font-medium">ASUS FHD Gaming Laptop</p>
+              <div class="flex gap-5">
+                <span class="font-medium text-[#DB4444]">$120</span>
+                <span class="line-through font-medium text-gray-500">$160</span>
+              </div>
+              <img src="/Images/Products/rate-4.5-star-75.png" alt="" />
+            </div>
+          </div>
+          <div>
+            <div class="bg-gray-100 group">
+              <div class="relative pt-10 px-10 mx-auto">
+                <div>
+                  <div class="h-43 flex justify-center items-center">
+                    <img
+                      class="p-3"
+                      src="/Images/Products/curology Product.png"
+                    />
+                  </div>
+                  <!-- <span>
+                    <span
+                      class="absolute top-3 left-5 bg-[#DB4444] text-white px-3 rounded-md py-1"
+                      >-40%</span
+                    >
+                  </span> -->
+                  <div
+                    class="absolute text-black right-3 flex text-xl space-y-5 flex-col top-3"
+                  >
+                    <ion-icon
+                      class="bg-white rounded-full p-1"
+                      name="eye-outline"
+                    ></ion-icon>
+                    <ion-icon
+                      class="bg-white rounded-full p-1"
+                      name="heart-outline"
+                    ></ion-icon>
+                  </div>
+                </div>
+              </div>
+              <button
+                class="flex justify-center opacity-0 rounded-b-md bg-black w-1/1 text-white py-2 group-hover:opacity-100 transition-group-hover:block duration-300 ease-in-out"
+              >
+                Add To Cart
+              </button>
+            </div>
+            <div class="Product-detail mt-2 space-y-1">
+              <p class="font-medium">Curology Product Set</p>
+              <div class="flex gap-5">
+                <span class="font-medium text-[#DB4444]">$120</span>
+                <span class="line-through font-medium text-gray-500">$160</span>
+              </div>
+              <img src="/Images/Products/rate-4.5-star-75.png" alt="" />
+            </div>
+          </div>
+          <div>
+            <div class="bg-gray-100 group">
+              <div class="relative pt-10 px-10 mx-auto">
+                <div>
+                  <div class="h-43 flex justify-center items-center">
+                    <img
+                      class="p-3"
+                      src="/Images/Products/Kids Electric Car.png"
+                    />
+                  </div>
+                  <!-- <span>
+                    <span
+                      class="absolute top-3 left-5 bg-[#DB4444] text-white px-3 rounded-md py-1"
+                      >-40%</span
+                    >
+                  </span> -->
+                  <div
+                    class="absolute text-black right-3 flex text-xl space-y-5 flex-col top-3"
+                  >
+                    <ion-icon
+                      class="bg-white rounded-full p-1"
+                      name="eye-outline"
+                    ></ion-icon>
+                    <ion-icon
+                      class="bg-white rounded-full p-1"
+                      name="heart-outline"
+                    ></ion-icon>
+                  </div>
+                </div>
+              </div>
+              <button
+                class="flex justify-center opacity-0 rounded-b-md bg-black w-1/1 text-white py-2 group-hover:opacity-100 transition-group-hover:block duration-300 ease-in-out"
+              >
+                Add To Cart
+              </button>
+            </div>
+            <div class="Product-detail mt-2 space-y-1">
+              <p class="font-medium">Kids Electric Car</p>
+              <div class="flex gap-5">
+                <span class="font-medium text-[#DB4444]">$120</span>
+                <span class="line-through font-medium text-gray-500">$160</span>
+              </div>
+              <img src="/Images/Products/rate-4.5-star-75.png" alt="" />
+            </div>
+          </div>
+
+          <div>
+            <div class="bg-gray-100 group">
+              <div class="relative pt-10 px-10 mx-auto">
+                <div>
+                  <div class="h-43 flex justify-cente items-center">
+                    <img class="p-3" src="/Images/Products/Soccer cleat.png" />
+                  </div>
+                  <!-- <span>
+                    <span
+                      class="absolute top-3 left-5 bg-[#DB4444] text-white px-3 rounded-md py-1"
+                      >-35%</span
+                    >
+                  </span> -->
+                  <div
+                    class="absolute text-black right-3 flex text-xl space-y-5 flex-col top-3"
+                  >
+                    <ion-icon
+                      class="bg-white rounded-full p-1"
+                      name="eye-outline"
+                    ></ion-icon>
+                    <ion-icon
+                      class="bg-white rounded-full p-1"
+                      name="heart-outline"
+                    ></ion-icon>
+                  </div>
+                </div>
+              </div>
+              <button
+                class="flex justify-center opacity-0 rounded-b-md bg-black w-1/1 text-white py-2 group-hover:opacity-100 transition-group-hover:block duration-300 ease-in-out"
+              >
+                Add To Cart
+              </button>
+            </div>
+            <div class="Product-detail mt-2 space-y-1">
+              <p class="font-medium">Jr. Zoom Soccer Cleats</p>
+              <div class="flex gap-5">
+                <span class="font-medium text-[#DB4444]">$960</span>
+                <span class="line-through font-medium text-gray-500"
+                  >$1160</span
+                >
+              </div>
+              <img src="/Images/Products/rate-5-star-89.png" />
+            </div>
+          </div>
+          <div>
+            <div class="bg-gray-100 group">
+              <div class="relative pt-10 px-10 mx-auto">
+                <div>
+                  <div class="h-43 justify-cente flex items-center">
+                    <img
+                      class="p-3"
+                      src="/Images/Products/USB gaming PAd.png"
+                    />
+                  </div>
+                  <!-- <span>
+                    <span
+                      class="absolute top-3 left-5 bg-[#DB4444] text-white px-3 rounded-md py-1"
+                      >-30%</span
+                    >
+                  </span> -->
+                  <div
+                    class="absolute text-black right-3 flex text-xl space-y-5 flex-col top-3"
+                  >
+                    <ion-icon
+                      class="bg-white rounded-full p-1"
+                      name="eye-outline"
+                    ></ion-icon>
+                    <ion-icon
+                      class="bg-white rounded-full p-1"
+                      name="heart-outline"
+                    ></ion-icon>
+                  </div>
+                </div>
+              </div>
+              <button
+                class="flex justify-center opacity-0 rounded-b-md bg-black w-1/1 text-white py-2 group-hover:opacity-100 transition-group-hover:block duration-300 ease-in-out"
+              >
+                Add To Cart
+              </button>
+            </div>
+            <div class="Product-detail mt-2 space-y-1">
+              <p class="font-medium">GP11 Shooter USB Gamepad</p>
+              <div class="flex gap-5">
+                <span class="font-medium text-[#DB4444]">$370</span>
+                <span class="line-through font-medium text-gray-500">$400</span>
+              </div>
+              <img src="/Images/Products/rate-5-star.png" alt="" />
+            </div>
+          </div>
+          <div>
+            <div class="bg-gray-100 group">
+              <div class="relative pt-10 px-10 mx-auto">
+                <div>
+                  <div class="h-43 flex justify-center items-center">
+                    <img class="p-3" src="/Images/Products/Saint Jacket.png" />
+                  </div>
+                  <!-- <span>
+                    <span
+                      class="absolute top-3 left-5 bg-[#DB4444] text-white px-3 rounded-md py-1"
+                      >-25%</span
+                    >
+                  </span> -->
+                  <div
+                    class="absolute text-black right-3 flex text-xl space-y-5 flex-col top-3"
+                  >
+                    <ion-icon
+                      class="bg-white rounded-full p-1"
+                      name="eye-outline"
+                    ></ion-icon>
+                    <ion-icon
+                      class="bg-white rounded-full p-1"
+                      name="heart-outline"
+                    ></ion-icon>
+                  </div>
+                </div>
+              </div>
+              <button
+                class="flex justify-center opacity-0 rounded-b-md bg-black w-1/1 text-white py-2 group-hover:opacity-100 transition-group-hover:block duration-300 ease-in-out"
+              >
+                Add To Cart
+              </button>
+            </div>
+            <div class="Product-detail mt-2 space-y-1">
+              <p class="font-medium">Quilted Satin Jacket</p>
+              <div class="flex gap-5">
+                <span class="font-medium text-[#DB4444]">$20</span>
+                <span class="line-through font-medium text-gray-500">$190</span>
+              </div>
+              <img src="/Images/Products/rate-4.5-star-75.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="bg-[#DB4444] cursor-pointer rounded-md mx-auto mt-20 flex w-70 p-4 text-white font-medium text-xl content-center"
+      >
+        <span class="inline-block mx-auto">View All Products</span>
+      </div>
+    </section>
+
+    <!-- New Arrival -->
+    <section class="mx-auto pb-15 max-w-7xl mb-10 px-2 sm:px-6 lg:px-8 mt-25">
+      <div>
+        <div
+          class="text-[#DB4444] rounded-sm text-md border-l-15 round pl-4 py-2 font-medium"
+        >
+          <p>Featured</p>
+        </div>
+        <div class="flex gap-30 items-end">
+          <p class="text-4xl font-medium">New Arrival</p>
+        </div>
+      </div>
+
+      <div class="grid gap-10 grid-cols-2 mt-5">
+        <div class="flex items-end w-1/1 pt-20 rounded-sm bg-black">
+          <div class="bg-contain flex items-end flex bg-no-repeat mx-auto bg-center h-1/1 w-1/1" style="background-image: url('/Images/Products/PS 5.png')">
+            <div class="text-white ml-10 space-y-2 mb-10">
+              <p class="text-2xl font-bold">PlayStation 5</p>
+              <p class="text-sm">Black and White version of the PS5 <br> coming out on sale.</p>
+              <span class="text-md font-medium border-b-1">Shop Now</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-rows-2 gap-7">
+          <div class="grid grid-cols-2 rounded-md w-1/1 h-full bg-[#0D0D0D] px-10 pt-10">
+            <div class="flex items-end pb-10">
+              <div class="text-white">
+                <p class="text-2xl font-medium">Women's Collections</p>
+                <p>Featured woman collections that give you another vibe.</p>
+                <span class="text-md font-medium border-b-1">Shop Now</span>
+              </div>
+            </div>
+            <div class="flex items-end">
+              <img src="/Images/Products/attractive-woman-wearing-hat.png">
+            </div>
+          </div>
+
+          <div class="grid w-1/1 gap-5 grid-cols-2">
+            <div class="bg-black rounded-md flex justify-center w-1/1">
+              <div class="bg-contain w-1/1 bg-no-repeat w-50 flex bg-center" style="background-image: url('/Images/Products/speaker.png')">
+                <div class="flex items-end pb-5">
+                  <div class="text-white">
+                    <p class="text-2xl">Speacker</p>
+                    <p>Amazon wireless speakers</p>
+                    <span class="text-md font-medium border-b-1">Show Now</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-black rounded-md flex justify-center w-1/1">
+              <div class="bg-contain bg-no-repeat w-50 flex bg-center" style="background-image: url('/Images/Products/perfume.png')">
+                <div class="flex items-end pb-5">
+                  <div class="text-white">
+                    <p class="text-2xl">Perfume</p>
+                    <p>GUCCI INTENSE OUD EDP</p>
+                    <span class="text-md font-medium border-b-1">Show Now</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="service mx-auto pb-15 max-w-7xl mb-10 px-2 sm:px-6 lg:px-8 mt-25">
+      <div class="flex gap-20 justify-center">
+        <div class="space-y-2 flex flex-col items-center">
+          <img src="/Images/Products/Services (1).png">    
+          <p class="text-xl font-medium">FREE AND FAST DELIVERY</p>
+          <p class="text-sm">Free delivery for all orders over $140</p>
+        </div>
+        <div class="space-y-2 flex flex-col items-center">
+          <img src="/Images/Products/Services (2).png">    
+          <p class="text-xl font-medium">24/7 CUSTOMER SERVICE</p>
+          <p class="text-sm">Friendly 24/7 customer support</p>
+        </div>
+        <div class="space-y-2 flex flex-col items-center">
+          <img src="/Images/Products/Services (3).png">    
+          <p class="text-xl font-medium">MONEY BACK GUARANTEE</p>
+          <p class="text-sm">We reurn money within 30 days</p>
+        </div>
+      </div>
+    </section>
+
+
+    <footer class="bg-black text-white p-15">
+      <div>
+        <div class="grid grid-cols-5 gap-10">
+
+          <div class="space-y-3">
+            <p class="text-2xl font-medium">Exclusive</p>
+            <p class="text-xl">Subscribe</p>
+            <p>Get 10% off your first order</p>
+            <input class="outline-0 border-1 p-2 rounded-md" type="text" placeholder="Enter your email">
+          </div>
+
+          <div class="space-y-4">
+            <p class="text-2xl font-medium">Support</p>
+            <p>111 Bijoy sarani, Dhaka, <br>  DH 1515, Bangladesh.</p>
+            <p>exclusive@gmail.com</p>
+            <p>+88015-88888-9999</p>
+          </div>
+
+          <div class="space-y-3">
+            <p class="text-2xl font-medium">Account</p>
+            <a href="/Html/account.html">My Accout</a>
+            <div class="flex flex-col space-y-4">
+              <div>
+                <a href="/Html/login.html">Login /</a>
+                <a href="/Html/signup.html">Register</a>
+              </div>
+              <a href="">Cart</a>
+              <a href="">Wishlist</a>
+              <a href="">Shop</a>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <p class="text-2xl font-medium">Quick Link</p>
+            <p>Privacy Policy</p>
+            <p>Terms Of Use</p>
+            <p>FAQ</p>
+            <a href="/Html/contact.html">Contact</a>
+          </div>
+
+          <div class="space-y-4">
+            <p class="text-2xl font-medium">Download App</p>
+            <p class="text-sm">Save $3 with App New User Only</p>
+            <div class="grid grid-cols-2">
+              <div>
+                <img src="/Images/Products/Qrcode 1.png">
+              </div>
+              <div class="grid-rows-2 grid gap-2">
+                <div>
+                  <img src="/Images/Products/GooglePlay.png">
+                </div>
+                <img src="/Images/Products/download-appstore.png">
+              </div>
+            </div>
+            <div class="text-2xl space-x-3 text-white">
+              <ion-icon name="logo-facebook"></ion-icon>
+              <ion-icon name="logo-twitter"></ion-icon>
+              <ion-icon name="logo-instagram"></ion-icon>
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>
