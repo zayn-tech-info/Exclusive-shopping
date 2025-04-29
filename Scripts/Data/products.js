@@ -81,7 +81,14 @@ const getProducts = async () => {
             });
           }
           console.log(cart);
-          
+
+          let cartQuantity = 0;
+          const cartTotal = document.querySelector(".js-cart-quantity");
+          cart.forEach((cartItem) => {
+            cartQuantity += cartItem.quantity;
+            cartTotal.innerText = cartQuantity;
+            console.log(cartQuantity);
+          });
         });
       });
     });
