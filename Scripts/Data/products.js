@@ -1,3 +1,4 @@
+import { cart } from "./cart.js";
 // Get all the products needed from the api
 const url = "https://dummyjson.com/products";
 const productsContainer = document.querySelector(".products");
@@ -39,7 +40,8 @@ const getProducts = async () => {
                 </div>
               </div>
               <button
-                class="flex justify-center opacity-0 rounded-b-md bg-black w-1/1 text-white py-2 group-hover:opacity-100 transition-group-hover:block duration-300 ease-in-out"
+                class="addToCart flex justify-center opacity-0 rounded-b-md bg-black w-1/1 text-white py-2 group-hover:opacity-100 transition-group-hover:block duration-300 ease-in-out"
+                data-product-id="${product.id}"
               >
                 Add To Cart
               </button>
@@ -57,11 +59,34 @@ const getProducts = async () => {
             </div>
           </div>`;
       productsContainer.innerHTML = productsHtml;
+
+      const addToCartbtns = document.querySelectorAll(".addToCart");
+      addToCartbtns.forEach((button) => {
+        button.addEventListener("click", () => {
+          const productId = button.dataset.productId;
+
+          let matchingItem;
+          cart.forEach((cartItem) => {
+            if (cartItem.productId === productId) {
+              matchingItem = cartItem;
+            }
+          });
+
+          if (matchingItem) {
+            matchingItem.quantity++;
+          } else {
+            cart.push({
+              productId: productId,
+              quantity: 1,
+            });
+          }
+          console.log(cart);
+          
+        });
+      });
     });
   } catch (error) {
-    console.error("Error detected:", error);
-    productsContainer.innerHTML =
-      "Sorry we couldn't load your product <br> Check  your internet connection or try again later";
+    console.error("Error fetching products:", error);
   }
 };
 getProducts();
