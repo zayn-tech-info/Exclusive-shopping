@@ -1,8 +1,8 @@
-import { cart } from "../data/cart.js";
+import { cart, removeFromCart} from "../data/cart.js";
 import { getProducts } from "../data/products.js";
 
 let matchingProduct;
-let cartSummaryHtml;
+let cartSummaryHtml = "";
 const renderCart = async () => {
   const products = await getProducts();
   console.log(products);
@@ -11,30 +11,48 @@ const renderCart = async () => {
     products.forEach((product) => {
       if (product.id === productId) {
         matchingProduct = product;
-        cartSummaryHtml += `<div class="mx-auto my-10 shadow py-2">
+        cartSummaryHtml += `
+        <div class="mx-auto my-10 shadow py-2 cart-item-container-${matchingProduct.id}">
           <div class="grid grid-cols-4 items-center">
             <div class="mx-auto flex gap-5">
               <img class="w-10" src="${matchingProduct.images}" alt="" />
               <p>${matchingProduct.title}</p>
             </div>
             <div class="mx-auto">
-              <p>${matchingProduct.
-				discountPercentage}</p>
+              <p>${matchingProduct.discountPercentage}</p>
             </div>
             <div class="mx-auto">
-              <input onchange="${(e)=>{console.log(e)}}" class="text-black w-10 border-1 outline-0 text-xl font-medium pl-4" type="text" placeholder="${cartItem.quantity}" />
+              <input class="text-black w-10 border-1 outline-0 text-xl font-medium pl-4" type="text" placeholder="${
+          cartItem.quantity
+        }"/>
             </div>
-            <div class="mx-auto">
-              <p>${matchingProduct.discountPercentage * (cartItem.quantity)}</p>
+            <div class="mx-auto flex items-center gap-20">
+              <p>${matchingProduct.discountPercentage * cartItem.quantity}</p>
+
+              <span>
+                <ion-icon 
+                  data-product-id="${matchingProduct.id}" 
+                  class="removeFromCart ${matchingProduct.id} text-4xl cursor-pointer hover:bg-[#DB4444] rounded-full hover:text-white duration-200 transition ease-in-out" name="close-circle-outline"></ion-icon>
+              </span> 
             </div>
           </div>
         </div>`;
-		document.querySelector('.cartSummaryHtml').innerHTML = cartSummaryHtml
+        document.querySelector(".cartSummaryHtml").innerHTML = cartSummaryHtml;
+        const removeFromCartList = document.querySelectorAll(".removeFromCart");
+        console.log(removeFromCartList);
+        removeFromCartList.forEach((button) => {
+          button.addEventListener("click", () => {
+            const productId = Number(button.dataset.productId);
+            console.log(productId);
+            removeFromCart(productId)
+            const container =  document.querySelector(`.cart-item-container-${productId}`)
+            container.remove()
+          });
+        });
       }
     });
   });
 };
 renderCart();
 console.log(cart);
-
- 
+console.log(cartSummaryHtml);

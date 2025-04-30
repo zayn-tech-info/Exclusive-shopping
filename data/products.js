@@ -1,6 +1,6 @@
-// Get all the products needed from the api
+ // Get all the products needed from the api
 const url = "https://dummyjson.com/products";
-export const getProducts = async () => {
+export const getProducts = async (products) => {
   try {
     const res = await fetch(url);
     const data = await res.json();
@@ -10,6 +10,4 @@ export const getProducts = async () => {
     console.error("Error fetching products:", error);
   }
 };
-getProducts();
-
-
+getProducts(); 
