@@ -1,4 +1,4 @@
-import { addToCart, saveToStorage } from "../data/cart.js";
+import {cart, addToCart} from "../data/cart.js";
 import { getProducts } from "../data/products.js";
 
 const productsContainer = document.querySelector(".products");
@@ -42,13 +42,19 @@ const renderProducts = async () => {
 	</div>`;
     productsContainer.innerHTML = productsHtml;
 
+	  let cartQuantity = 0;
+	  const cartTotal = document.querySelector(".js-cart-quantity");
+	  cart.forEach((cartItem) => {
+		cartQuantity += cartItem.quantity;
+		cartTotal.innerText = cartQuantity;
+	  });
+
     const addToCartbtns = document.querySelectorAll(".addToCart");
     addToCartbtns.forEach((button) => {
       button.addEventListener("click", () => {
         const productId = Number(button.dataset.productId);
 		console.log(productId);
         addToCart(productId);
-        saveToStorage();
       });
     });
   });

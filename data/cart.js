@@ -32,16 +32,7 @@ export function addToCart(productId) {
       quantity: 1,
     });
   }
-  console.log(cart);
-
-  let cartQuantity = 0;
-  const cartTotal = document.querySelector(".js-cart-quantity");
-  cart.forEach((cartItem) => {
-    cartQuantity += cartItem.quantity;
-    cartTotal.innerText = cartQuantity;
-    saveToStorage();
-  });
-  saveToStorage()
+  saveToStorage();
 }
 
 export const removeFromCart = (productId) => {
@@ -52,8 +43,5 @@ export const removeFromCart = (productId) => {
     }
   });
   cart = newCart;
-  console.log(newCart);
-  console.log(cart);
+  saveToStorage();
 };
-
-
