@@ -1,4 +1,4 @@
-import {cart, addToCart} from "../data/cart.js";
+import { cart, addToCart } from "../data/cart.js";
 import { getProducts } from "../data/products.js";
 
 const productsContainer = document.querySelector(".products");
@@ -8,7 +8,7 @@ const renderProducts = async () => {
   let productsHtml = "";
   products.forEach((product) => {
     productsHtml += `
-	<div class="product-item">
+	<div class="product-item relative">
 	  <div class="bg-gray-100 group">
 		<div class="relative pt-10 px-10 mx-auto">
 		  <div>
@@ -28,6 +28,8 @@ const renderProducts = async () => {
 		  Add To Cart
 		</button>
 	  </div>
+	  <div class="addedToCartMes">
+	  </div>
 	  <div class="Product-detail mt-2 space-y-1">
 		<p class="font-medium">${product.title}</p>
 		<div class="flex gap-5">
@@ -42,22 +44,31 @@ const renderProducts = async () => {
 	</div>`;
     productsContainer.innerHTML = productsHtml;
 
-
-	function updateCartQuantity() {
-		let cartQuantity = 0;
-		const cartTotal = document.querySelector(".js-cart-quantity");
-		cart.forEach((cartItem) => {
-		  cartQuantity += cartItem.quantity;
-		  cartTotal.innerText = cartQuantity;
-		});
-	}
-	updateCartQuantity()
+    function updateCartQuantity() {
+      let cartQuantity = 0;
+      const cartTotal = document.querySelector(".js-cart-quantity");
+      cart.forEach((cartItem) => {
+        cartQuantity += cartItem.quantity;
+        cartTotal.innerText = cartQuantity;
+      });
+    }
+    updateCartQuantity();
     const addToCartbtns = document.querySelectorAll(".addToCart");
     addToCartbtns.forEach((button) => {
       button.addEventListener("click", () => {
         const productId = Number(button.dataset.productId);
         addToCart(productId);
-		updateCartQuantity()
+        updateCartQuantity();
+
+        const productItem = button.closest(".product-item");
+        const addedToCartMes = productItem.querySelector(".addedToCartMes");
+        setTimeout(() => {
+          addedToCartMes.innerHTML = "";
+        }, 2000);
+        addedToCartMes.innerHTML = `
+		<div class="py-1 absolute bottom-7 left-13 z-10 h-8 px-3 text-center font-medium text-white w-40 rounded-sm mx-auto bg-[#DB4444]">
+			<p>Added to Cart</p>
+		</div>`;
       });
     });
   });
