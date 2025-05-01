@@ -42,19 +42,22 @@ const renderProducts = async () => {
 	</div>`;
     productsContainer.innerHTML = productsHtml;
 
-	  let cartQuantity = 0;
-	  const cartTotal = document.querySelector(".js-cart-quantity");
-	  cart.forEach((cartItem) => {
-		cartQuantity += cartItem.quantity;
-		cartTotal.innerText = cartQuantity;
-	  });
 
+	function updateCartQuantity() {
+		let cartQuantity = 0;
+		const cartTotal = document.querySelector(".js-cart-quantity");
+		cart.forEach((cartItem) => {
+		  cartQuantity += cartItem.quantity;
+		  cartTotal.innerText = cartQuantity;
+		});
+	}
+	updateCartQuantity()
     const addToCartbtns = document.querySelectorAll(".addToCart");
     addToCartbtns.forEach((button) => {
       button.addEventListener("click", () => {
         const productId = Number(button.dataset.productId);
-		console.log(productId);
         addToCart(productId);
+		updateCartQuantity()
       });
     });
   });
