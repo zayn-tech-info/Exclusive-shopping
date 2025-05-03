@@ -111,7 +111,7 @@
                 class="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden"
               >
                 <span class="absolute -inset-1.5"></span>
-                
+
                 <span class="sr-only">View notifications</span>
                 <svg
                   class="size-6"
@@ -133,11 +133,13 @@
               <div>
                 <ion-icon class="text-3xl" name="heart-outline"></ion-icon>
               </div>
-              
+
               <div class="relative">
                 <ion-icon class="text-3xl" name="cart-outline"></ion-icon>
                 <div class="absolute bottom-7 left-5">
-                  <p class="bg-[#DB4444] text-white px-2 text-sm rounded-full">2</p>
+                  <p class="bg-[#DB4444] text-white px-2 text-sm rounded-full">
+                    2
+                  </p>
                 </div>
               </div>
 
@@ -181,7 +183,7 @@
                   <!-- Active: "bg-gray-100 outline-hidden", Not Active: "" -->
                   <a
                     href="#"
-                    class="block px-4 py-2 text-sm "
+                    class="block px-4 py-2 text-sm"
                     role="menuitem"
                     tabindex="-1"
                     id="user-menu-item-0"
@@ -189,7 +191,7 @@
                   >
                   <a
                     href="#"
-                    class="block px-4 py-2 text-sm  "
+                    class="block px-4 py-2 text-sm"
                     role="menuitem"
                     tabindex="-1"
                     id="user-menu-item-1"
@@ -197,7 +199,7 @@
                   >
                   <a
                     href="#"
-                    class="block px-4 py-2 text-sm  "
+                    class="block px-4 py-2 text-sm"
                     role="menuitem"
                     tabindex="-1"
                     id="user-menu-item-2"
@@ -205,7 +207,7 @@
                   >
                   <a
                     href="#"
-                    class="block px-4 py-2 text-sm  "
+                    class="block px-4 py-2 text-sm"
                     role="menuitem"
                     tabindex="-1"
                     id="user-menu-item-2"
@@ -213,13 +215,12 @@
                   >
                   <a
                     href="#"
-                    class="block px-4 py-2 text-sm  "
+                    class="block px-4 py-2 text-sm"
                     role="menuitem"
                     tabindex="-1"
                     id="user-menu-item-2"
                     >Logout</a
-                  >   
-
+                  >
                 </div>
               </div>
             </div>
@@ -335,36 +336,89 @@
             </div>
 
             <div class="flex flex-col space-y-7">
-              <div class="flex my-10 justify-between items-center">
-                <div class="flex gap-10 items-center">
-                  <img
-                    class="w-10"
-                    src="/Images/Products/game-pad.png"
-                    alt=""
-                  />
-                  <p>H1 Gamepad</p>
+              <div class="checkoutSummaryHtml">
+                <div class="flex my-10 justify-between items-center">
+                  <div class="flex gap-10 items-center">
+                    <img
+                      class="w-10"
+                      src="/Images/Products/game-pad.png"
+                      alt=""
+                    />
+                    <p>H1 Gamepad</p>
+                  </div>
+                  <p>$650</p>
                 </div>
-                <p>$650</p>
-              </div>
-              <div class="flex justify-between items-center">
-                <div class="flex gap-10 items-center">
-                  <img class="w-10" src="/Images/Products/Monitor.png" alt="" />
-                  <p>LCD Monitor</p>
+                <div class="flex justify-between items-center">
+                  <div class="flex gap-10 items-center">
+                    <img class="w-10" src="/Images/Products/Monitor.png" alt="" />
+                    <p>LCD Monitor</p>
+                  </div>
+                  <p>$1110</p>
                 </div>
-                <p>$1110</p>
               </div>
-              <div
-                class="border-b-1 border-gray-500 flex justify-between pb-3"
-              >
+              <div class="border-b-1 border-gray-500 flex justify-between pb-3">
                 <p>Subtotal:</p>
                 <p>$1750</p>
               </div>
-              <div
-                class="border-b-1 border-gray-500 flex justify-between pb-3"
-              >
-                <p>Shipping:</p>
-                <p>free</p>
+
+              <div>
+                <div
+                  class="border-b-1 border-gray-500 flex justify-between pb-3"
+                >
+                  <p class="text-xl font-medium">Shipping:</p>
+                  <p class="text-xl font-medium">free</p>
+                </div>
+                <div>
+                  <p class="font-medium text-xl py-3">
+                    Choose a delivery option
+                  </p>
+                  <div class="space-y-3">
+                    <div class="border-1 border-gray-400 px-5 p-2 rounded-md">
+                      <div class="flex gap-5 items-center">
+                        <input type="radio" />
+                        <div class="space-y-3">
+                          <p class="text-xl font-medium text-[#DB4444]">
+                            Tuesday, June 21
+                          </p>
+                          <div class="flex gap-10">
+                            <p class="font-medium">Free Shipping</p>
+                            <p class="opacity-60">After 7 days</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="border-1 border-gray-400 px-5 p-2 rounded-md">
+                      <div class="flex gap-5 items-center">
+                        <input type="radio" />
+                        <div class="space-y-3">
+                          <p class="text-xl font-medium text-[#DB4444]">
+                            Tuesday, June 21
+                          </p>
+                          <div class="flex gap-10">
+                            <p class="font-medium">$4.99 Shipping</p>
+                            <p class="opacity-60">After 3 days</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="border-1 border-gray-400 px-5 p-2 rounded-md">
+                      <div class="flex gap-5 items-center">
+                        <input type="radio" />
+                        <div class="space-y-3">
+                          <p class="text-xl font-medium text-[#DB4444]">
+                            Tuesday, June 21
+                          </p>
+                          <div class="flex gap-10">
+                            <p class="font-medium">$9.99 Shipping</p>
+                            <p class="opacity-60">Today</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
+
               <div class="flex justify-between">
                 <p>Total:</p>
                 <p>$1750</p>
@@ -375,13 +429,13 @@
               </div>
               <div class="flex justify-between">
                 <input type="radio" />
-                <p class="text-xl font-medium ">Cash on delivery</p>
+                <p class="text-xl font-medium">Cash on delivery</p>
               </div>
               <div class="flex gap-5 justify-between my-10">
                 <input
                   class="border-1 flex-1 py-2 px-5 outline-0 rounded-sm border-gray-500"
                   type="text"
-				  placeholder="Coupon Code"
+                  placeholder="Coupon Code"
                 />
                 <button
                   class="py-2 px-5 flex-1 bg-[#DB4444] text-white rounded-md cursor-pointer"
@@ -389,12 +443,13 @@
                   Coupon Code
                 </button>
               </div>
-			  <button
-			  class="py-4 px-5 bg-[#DB4444] text-white rounded-md cursor-pointer"
-			>
-			  Place Order
-			</button>
+              <button
+                class="py-4 px-5 bg-[#DB4444] text-white rounded-md cursor-pointer"
+              >
+                Place Order
+              </button>
             </div>
+            
           </div>
         </div>
       </div>
@@ -403,17 +458,23 @@
     <footer class="bg-black text-white p-15">
       <div>
         <div class="grid grid-cols-5 gap-10">
-
           <div class="space-y-3">
             <p class="text-2xl font-medium">Exclusive</p>
             <p class="text-xl">Subscribe</p>
             <p>Get 10% off your first order</p>
-            <input class="outline-0 border-1 p-2 rounded-md" type="text" placeholder="Enter your email">
+            <input
+              class="outline-0 border-1 p-2 rounded-md"
+              type="text"
+              placeholder="Enter your email"
+            />
           </div>
 
           <div class="space-y-4">
             <p class="text-2xl font-medium">Support</p>
-            <p>111 Bijoy sarani, Dhaka, <br>  DH 1515, Bangladesh.</p>
+            <p>
+              111 Bijoy sarani, Dhaka, <br />
+              DH 1515, Bangladesh.
+            </p>
             <p>exclusive@gmail.com</p>
             <p>+88015-88888-9999</p>
           </div>
@@ -445,13 +506,13 @@
             <p class="text-sm">Save $3 with App New User Only</p>
             <div class="grid grid-cols-2">
               <div>
-                <img src="/Images/Products/Qrcode 1.png">
+                <img src="/Images/Products/Qrcode 1.png" />
               </div>
               <div class="grid-rows-2 grid gap-2">
                 <div>
-                  <img src="/Images/Products/GooglePlay.png">
+                  <img src="/Images/Products/GooglePlay.png" />
                 </div>
-                <img src="/Images/Products/download-appstore.png">
+                <img src="/Images/Products/download-appstore.png" />
               </div>
             </div>
             <div class="text-2xl space-x-3 text-white">
@@ -464,6 +525,8 @@
         </div>
       </div>
     </footer>
+
+    <script type="module" src="../scripts/checkout.js"></script>
 
     <script
       type="module"
