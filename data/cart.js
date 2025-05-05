@@ -4,11 +4,13 @@ if (!cart) {
     {
       productId: 1,
       quantity: 1,
+      deliveryOptionsId: 1
     },
     {
       productId: 2,
       quantity: 2,
-    },
+      deliveryOptionsId: 1
+    }
   ];
 }
 

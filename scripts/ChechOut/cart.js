@@ -1,5 +1,5 @@
-import { cart, removeFromCart } from "../data/cart.js";
-import { getProducts } from "../data/products.js";
+/* import { cart, removeFromCart } from "../../data/cart.js";
+import { getProducts } from "../../data/products.js";
 
 let matchingProduct;
 let cartSummaryHtml = "";
@@ -7,7 +7,7 @@ const renderCart = async () => {
   const products = await getProducts();
   console.log(products);
   cart.forEach((cartItem) => {
-    const productId = cartItem.productId;
+    const productId = cartItem.productId; 
     products.forEach((product) => {
       if (product.id === productId) {
         matchingProduct = product;
@@ -15,6 +15,7 @@ const renderCart = async () => {
         document.querySelector(".cartSummaryHtml").innerHTML = cartSummaryHtml;
         const removeFromCartList = document.querySelectorAll(".removeFromCart");
         console.log(removeFromCartList);
+        
         removeFromCartList.forEach((button) => {
           button.addEventListener("click", () => {
             const productId = Number(button.dataset.productId);
@@ -68,3 +69,6 @@ function renderCartHtml(matchingProduct, cartItem) {
 renderCart();
 console.log(cart);
 console.log(cartSummaryHtml);
+ */
+
+console.log("Hello");
