@@ -1,22 +1,16 @@
-/* import { cart } from "../../data/cart.js";
+import { cart } from "../../data/cart.js";
 import { deliveryOptions } from "../../data/deliveryOption.js";
 import dayjs from "https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js";
 
-cart.forEach((cartItem) => {
+document.addEventListener("DOMContentLoaded", () => {
+  let paymentSummary = "";
   deliveryOptions.forEach((option) => {
-    let paymentSummary = "";
-    const deliveryOptionId = option.id;
-    let deliveryOption;
-    if (cartItem.deliveryOptionsId === deliveryOptionId) {
-      deliveryOption = option;
-		console.log(deliveryOption);
-		
-      const today = dayjs();
-      const deliveryDate = today.add(option.deliveryDays, "days");
-      deliveryDate.format("dddd, MMMM D");
-      console.log(deliveryDate);
+    const today = dayjs();
+    const deliveryDateAdd = today.add(option.deliveryDays, "days");
+    const deliveryDate = deliveryDateAdd.format("dddd, MMMM D");
+    console.log("Hi");
 
-      paymentSummary += `
+    paymentSummary += `
 		<div class="border-1 border-gray-400 px-5 p-2 rounded-md">
 			<div class="flex gap-5 items-center">
 				<input type="radio" />
@@ -26,7 +20,7 @@ cart.forEach((cartItem) => {
 				</p>
 				<div class="flex gap-10">
 					<p class="font-medium">${
-            deliveryOption === 0 ? "Free Shipping" : deliveryOption.deliveryDays
+            option.deliveryDays === 0 ? "Free Shipping" : option.deliveryDays
           }}</p>
 					<p class="opacity-60">After 7 days</p>
 				</div>
@@ -34,8 +28,12 @@ cart.forEach((cartItem) => {
 			</div>
 		</div>
 	  `;
+    const deliveryOptionElement = document.querySelector(".delivery-option");
+    if (deliveryOptionElement) {
+      deliveryOptionElement.innerHTML = paymentSummary;
     }
+    console.log(paymentSummary);
   });
+  console.log(dayjs);
+  console.log(cart);
 });
- */
-console.log("Hi");

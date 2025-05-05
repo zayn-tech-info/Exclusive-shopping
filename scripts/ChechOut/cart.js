@@ -1,4 +1,4 @@
-/* import { cart, removeFromCart } from "../../data/cart.js";
+import { cart, removeFromCart } from "../../data/cart.js";
 import { getProducts } from "../../data/products.js";
 
 let matchingProduct;
@@ -69,6 +69,3 @@ function renderCartHtml(matchingProduct, cartItem) {
 renderCart();
 console.log(cart);
 console.log(cartSummaryHtml);
- */
-
-console.log("Hello");

@@ -1,4 +1,4 @@
-/* import { cart } from "../data/cart.js";
+import { cart } from "../data/cart.js";
 import { getProducts } from "../data/products.js";
 let chechOutSummaryHtml = "";
 
@@ -38,5 +38,3 @@ function renderCheckOutHtml(matchingProduct, cartItem) {
 renderCart();
 console.log(cart);
 console.log(cartSummaryHtml);
- */
-console.log("Hi");
