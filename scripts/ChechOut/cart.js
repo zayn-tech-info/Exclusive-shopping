@@ -41,11 +41,11 @@ function renderCartHtml(matchingProduct, cartItem) {
         }">
           <div class="grid grid-cols-4 items-center">
             <div class="mx-auto flex gap-5">
-              <img class="w-10" src="${matchingProduct.images}" alt="" />
+              <img class="w-10" src="${matchingProduct.image}" alt="" />
               <p>${matchingProduct.title}</p>
             </div>
             <div class="mx-auto">
-              <p>${matchingProduct.discountPercentage}</p>
+              <p>${matchingProduct.price}</p>
             </div>
             <div class="mx-auto">
               <input class="text-black w-10 border-1 outline-0 text-xl font-medium pl-4" type="text" placeholder="${
@@ -53,7 +53,7 @@ function renderCartHtml(matchingProduct, cartItem) {
               }"/>
             </div>
             <div class="mx-auto flex items-center gap-20">
-              <p>${matchingProduct.discountPercentage * cartItem.quantity}</p>
+              <p>${matchingProduct.price * cartItem.quantity}</p>
 
               <span>
                 <ion-icon 

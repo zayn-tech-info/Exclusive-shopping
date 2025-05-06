@@ -26,12 +26,12 @@ function renderCheckOutHtml(matchingProduct, cartItem) {
 		<div class="flex gap-10 items-center">
 			<img
 			class="w-10"
-			src="${matchingProduct.images}"
+			src="${matchingProduct.image}"
 			alt=""
 			/>
 			<p>${matchingProduct.title}</p>
 		</div>
-		<p>${matchingProduct.discountPercentage * cartItem.quantity}</p>
+		<p>${matchingProduct.price * cartItem.quantity}</p>
 		
 	</div>`;
 }

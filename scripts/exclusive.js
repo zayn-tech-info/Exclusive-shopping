@@ -13,7 +13,7 @@ const renderProducts = async () => {
 		<div class="relative pt-10 px-10 mx-auto">
 		  <div>
 			<div class="h-43 flex justify-center items-center">
-			  <img class="p-3" src="${product.images}" alt="${product.title}" />
+			  <img class="p-3" src="${product.image}" alt="${product.title}" />
 			</div>
 			<div class="absolute text-black right-3 flex text-xl space-y-5 flex-col top-3">
 			  <ion-icon class="bg-white rounded-full p-1" name="eye-outline"></ion-icon>
@@ -33,12 +33,12 @@ const renderProducts = async () => {
 	  <div class="Product-detail mt-2 space-y-1">
 		<p class="font-medium">${product.title}</p>
 		<div class="flex gap-5">
-		  <span class="font-medium text-[#DB4444]">$${product.discountPercentage}</span>
-		  <span class="line-through font-medium text-gray-500">$${product.price}</span>
+		  <span class="font-medium text-[#DB4444]">$${product.price}</span>
+		  <span class="line-through font-medium text-gray-500">$${product.price + (0.1 * product.price)}</span>
 		</div>
 		<div class="flex items-center gap-5">
 		  <img src="/Images/Products/rate-4.5-star-75.png" alt="${product.title}" />
-		  <p class="text-yellow-600 font-medium">${product.rating}</p>
+		  <p class="text-yellow-600 font-medium">${product.rating.rate}</p>
 		</div>
 	  </div>
 	</div>`;
