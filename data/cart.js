@@ -6,17 +6,17 @@ if (!cart) {
     {
       productId: 1,
       quantity: 1,
-      deliveryOptionId: "1"
+      // deliveryOptionId: "1"
     },
     {
       productId: 2,
       quantity: 2,
-      deliveryOptionId: "2"
+      // deliveryOptionId: "2"
     },
     {
       productId: 3,
       quantity: 3,
-      deliveryOptionId: "3"
+      // deliveryOptionId: "3"
     }
   ];
 }
@@ -39,7 +39,6 @@ export function addToCart(productId) {
     cart.push({
       productId: productId,
       quantity: 1,
-      deliveryOptionId: "1"
     });
   }
   saveToStorage();
