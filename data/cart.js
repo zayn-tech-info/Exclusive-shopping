@@ -1,4 +1,4 @@
-import { deliveryOptions } from "./deliveryOption";
+// import { deliveryOptions } from "./deliveryOption";
 
 export let cart = JSON.parse(localStorage.getItem("cart"));
 if (!cart) {
@@ -6,17 +6,17 @@ if (!cart) {
     {
       productId: 1,
       quantity: 1,
-      deliveryOptionsId: "1"
+      deliveryOptionId: "1"
     },
     {
       productId: 2,
       quantity: 2,
-      deliveryOptionsId: "2"
+      deliveryOptionId: "2"
     },
     {
       productId: 3,
       quantity: 3,
-      deliveryOptionsId: "3"
+      deliveryOptionId: "3"
     }
   ];
 }
@@ -39,7 +39,7 @@ export function addToCart(productId) {
     cart.push({
       productId: productId,
       quantity: 1,
-      deliveryOptions: deliveryOptions.deliverDays
+      deliveryOptionId: "1"
     });
   }
   saveToStorage();

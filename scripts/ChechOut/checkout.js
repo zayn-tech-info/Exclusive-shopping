@@ -1,5 +1,5 @@
-import { cart } from "../data/cart.js";
-import { getProducts } from "../data/products.js";
+import { cart } from "../../data/cart.js";
+import { getProducts } from "../../data/products.js";
 let chechOutSummaryHtml = "";
 
 let matchingProduct;

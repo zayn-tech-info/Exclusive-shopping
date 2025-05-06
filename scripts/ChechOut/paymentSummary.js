@@ -8,21 +8,32 @@ document.addEventListener("DOMContentLoaded", () => {
     const today = dayjs();
     const deliveryDateAdd = today.add(option.deliveryDays, "days");
     const deliveryDate = deliveryDateAdd.format("dddd, MMMM D");
-    console.log("Hi");
 
+    let isChecked;
+    cart.forEach((cartItem) => {
+      isChecked = option.id === cartItem.deliveryOptionId;
+    });
+
+    // document.querySelector('.js-delivery-date').innerText = 
     paymentSummary += `
-		<div class="border-1 border-gray-400 px-5 p-2 rounded-md">
+		<div class="js-deliveryOption border-1 cursor-pointer border-gray-400 px-5 p-2 rounded-md">
 			<div class="flex gap-5 items-center">
-				<input type="radio" />
+				<input name="deliveryOption"
+        ${isChecked ? "checked" : console.log("Hi")}
+         type="radio" />
 				<div class="space-y-3">
 				<p class="text-xl font-medium text-[#DB4444]">
 					${deliveryDate}
 				</p>
 				<div class="flex gap-10">
 					<p class="font-medium">${
-            option.deliveryDays === 0 ? "Free Shipping" : option.deliveryDays
-          }}</p>
-					<p class="opacity-60">After 7 days</p>
+            option.priceCent === 0 ? "Free Shipping" : option.priceCent
+          }</p>
+					<p class="opacity-60">${
+            option.deliveryDays === 0
+              ? "Today"
+              : `After ${option.deliveryDays}  days`
+          }</p>
 				</div>
 				</div>
 			</div>
@@ -32,8 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (deliveryOptionElement) {
       deliveryOptionElement.innerHTML = paymentSummary;
     }
-    console.log(paymentSummary);
   });
-  console.log(dayjs);
-  console.log(cart);
 });
+console.log(cart);
+console.log(deliveryOptions);
