@@ -1,6 +1,7 @@
 import { cart } from "../../data/cart.js";
 import { deliveryOptions } from "../../data/deliveryOption.js";
 import { getProducts } from "../../data/products.js";
+import { formatCurrencyPrice } from "../../Utils/formatcurrency.js";
 import dayjs from "https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -65,6 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 : "$" + matchingDelivery.priceCent;
 
             let totalCost = 0;
+            let cartTotal = 0;
             let matchingProduct;
             const calctotal = async () => {
               const products = await getProducts();
@@ -74,9 +76,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 products.forEach((product) => {
                   if (product.id === productId) {
                     matchingProduct = product;
-                    totalCost +=
-                      matchingProduct.price + matchingDelivery.priceCent;
-                    document.querySelector(".js-total").innerText = totalCost;
+                    cartTotal += (matchingProduct.price * cartItem.quantity);
+                    totalCost = cartTotal + (matchingDelivery.priceCent);
+                    console.log(matchingProduct)
+                    console.log(cartTotal);
+                    console.log(matchingDelivery.priceCent);
+                    console.log(totalCost);
+                    
+                    document.querySelector(".js-total").innerText =
+                '$'+formatCurrencyPrice(totalCost);
                   }
                 });
               });

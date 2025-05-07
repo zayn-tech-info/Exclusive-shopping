@@ -1,5 +1,6 @@
 import { cart, removeFromCart } from "../../data/cart.js";
 import { getProducts } from "../../data/products.js";
+import { formatCurrency } from "../../Utils/formatcurrency.js";
 
 let matchingProduct;
 let cartSummaryHtml = "";
@@ -7,7 +8,7 @@ const renderCart = async () => {
   const products = await getProducts();
   console.log(products);
   cart.forEach((cartItem) => {
-    const productId = cartItem.productId; 
+    const productId = cartItem.productId;
     products.forEach((product) => {
       if (product.id === productId) {
         matchingProduct = product;
@@ -15,7 +16,7 @@ const renderCart = async () => {
         document.querySelector(".cartSummaryHtml").innerHTML = cartSummaryHtml;
         const removeFromCartList = document.querySelectorAll(".removeFromCart");
         console.log(removeFromCartList);
-        
+
         removeFromCartList.forEach((button) => {
           button.addEventListener("click", () => {
             const productId = Number(button.dataset.productId);
@@ -30,8 +31,6 @@ const renderCart = async () => {
       }
     });
   });
-
-
 };
 
 function renderCartHtml(matchingProduct, cartItem) {
@@ -45,7 +44,7 @@ function renderCartHtml(matchingProduct, cartItem) {
               <p>${matchingProduct.title}</p>
             </div>
             <div class="mx-auto">
-              <p>${matchingProduct.price}</p>
+              <p>${formatCurrency(matchingProduct.price)}</p>
             </div>
             <div class="mx-auto">
               <input class="text-black w-10 border-1 outline-0 text-xl font-medium pl-4" type="text" placeholder="${
@@ -53,7 +52,7 @@ function renderCartHtml(matchingProduct, cartItem) {
               }"/>
             </div>
             <div class="mx-auto flex items-center gap-20">
-              <p>${matchingProduct.price * cartItem.quantity}</p>
+              <p>${formatCurrency(matchingProduct.price * cartItem.quantity)}</p>
 
               <span>
                 <ion-icon 
@@ -67,5 +66,3 @@ function renderCartHtml(matchingProduct, cartItem) {
         </div>`;
 }
 renderCart();
-console.log(cart);
-console.log(cartSummaryHtml);

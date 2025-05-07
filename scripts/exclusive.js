@@ -1,5 +1,6 @@
 import { cart, addToCart } from "../data/cart.js";
 import { getProducts } from "../data/products.js";
+import { formatCurrency } from "../Utils/formatcurrency.js";
 
 const productsContainer = document.querySelector(".products");
 const renderProducts = async () => {
@@ -33,8 +34,12 @@ const renderProducts = async () => {
 	  <div class="Product-detail mt-2 space-y-1">
 		<p class="font-medium">${product.title}</p>
 		<div class="flex gap-5">
-		  <span class="font-medium text-[#DB4444]">$${product.price}</span>
-		  <span class="line-through font-medium text-gray-500">$${product.price + (0.1 * product.price)}</span>
+		  <span class="font-medium text-[#DB4444]">$${formatCurrency(
+        product.price
+      )}</span>
+		  <span class="line-through font-medium text-gray-500">$${formatCurrency(
+        product.price + 0.1 * product.price
+      )}</span>
 		</div>
 		<div class="flex items-center gap-5">
 		  <img src="/Images/Products/rate-4.5-star-75.png" alt="${product.title}" />
