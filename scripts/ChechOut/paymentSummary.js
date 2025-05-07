@@ -1,5 +1,6 @@
 import { cart } from "../../data/cart.js";
 import { deliveryOptions } from "../../data/deliveryOption.js";
+import { getProducts } from "../../data/products.js";
 import dayjs from "https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -45,27 +46,45 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const jsDeliveryOption = document.querySelectorAll(".js-deliveryOption");
-    let matchingDelivery; // Declare outside the loop
+
+    let matchingDelivery;
     jsDeliveryOption.forEach((jsOption) => {
       jsOption.addEventListener("click", () => {
         jsOption.querySelector(".delivery-btn").checked = true;
         const deliveryId = jsOption.dataset.deliveryId;
-        console.log(deliveryId);
 
         deliveryOptions.forEach((option) => {
           if (Number(deliveryId) === Number(option.id)) {
             matchingDelivery = option;
-            console.log(matchingDelivery);
+
             document.querySelector(".js-delivery-date").innerText =
               getDeliveryDate(matchingDelivery.deliveryDays);
             document.querySelector(".js-shipping").innerText =
-              matchingDelivery.priceCent === 0 ? "Free Shipping" : "$"+ matchingDelivery.priceCent;
+              matchingDelivery.priceCent === 0
+                ? "Free Shipping"
+                : "$" + matchingDelivery.priceCent;
+
+            let totalCost = 0;
+            let matchingProduct;
+            const calctotal = async () => {
+              const products = await getProducts();
+
+              cart.forEach((cartItem) => {
+                const productId = cartItem.productId;
+                products.forEach((product) => {
+                  if (product.id === productId) {
+                    matchingProduct = product;
+                    totalCost +=
+                      matchingProduct.price + matchingDelivery.priceCent;
+                    document.querySelector(".js-total").innerText = totalCost;
+                  }
+                });
+              });
+            };
+            calctotal();
           }
         });
       });
     });
   });
 });
-``;
-console.log(cart);
-console.log(deliveryOptions);
