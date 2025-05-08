@@ -38,9 +38,11 @@ function renderCartHtml(matchingProduct, cartItem) {
         <div class="mx-auto my-10 shadow py-2 cart-item-container-${
           matchingProduct.id
         }">
-          <div class="grid grid-cols-4 items-center">
-            <div class="mx-auto flex gap-5">
+          <div class="grid grid-cols-5 items-center">
+            <div class="mx-auto">
               <img class="w-10" src="${matchingProduct.image}" alt="" />
+            </div>
+            <div class="mx-auto flex gap-5">
               <p>${matchingProduct.title}</p>
             </div>
             <div class="mx-auto">
@@ -52,7 +54,9 @@ function renderCartHtml(matchingProduct, cartItem) {
               }"/>
             </div>
             <div class="mx-auto flex items-center gap-20">
-              <p>${formatCurrency(matchingProduct.price * cartItem.quantity)}</p>
+              <p>${formatCurrency(
+                matchingProduct.price * cartItem.quantity
+              )}</p>
 
               <span>
                 <ion-icon 

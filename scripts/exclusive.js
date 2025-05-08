@@ -10,11 +10,11 @@ const renderProducts = async () => {
   products.forEach((product) => {
     productsHtml += `
 	<div class="product-item relative">
-	  <div class="bg-gray-100 group">
+	  <div class="shadow group">
 		<div class="relative pt-10 px-10 mx-auto">
 		  <div>
 			<div class="h-43 flex justify-center items-center">
-			  <img class="p-3" src="${product.image}" alt="${product.title}" />
+			  <img class="p-3 w-30" src="${product.image}" alt="${product.title}" />
 			</div>
 			<div class="absolute text-black right-3 flex text-xl space-y-5 flex-col top-3">
 			  <ion-icon class="bg-white rounded-full p-1" name="eye-outline"></ion-icon>
