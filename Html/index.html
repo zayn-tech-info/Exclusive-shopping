@@ -13,7 +13,7 @@
           <div class="relative flex h-16 items-center justify-between">
             <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
               <!-- Mobile menu button-->
-              <button
+              <buttonx
                 type="button"
                 class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:ring-2 focus:ring-white focus:outline-hidden focus:ring-inset"
                 aria-controls="mobile-menu"
@@ -61,7 +61,7 @@
                     d="M6 18 18 6M6 6l12 12"
                   />
                 </svg>
-              </button>
+              </buttonx>
             </div>
             <div
               class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-between"
@@ -73,13 +73,12 @@
               </div>
               <div class="hidden justify-center sm:ml-6 sm:block">
                 <div class="flex space-x-15 py-3">
-                  <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+
                   <a
                     href="/Html/index.html"
                     class="px-1 font-medium border-gray-300 border-b-2"
                     aria-current="page"
-                    >Home</a
-                  >
+                    >Home</a>
                   <a
                     href="/Html/contact.html"
                     class="px-1 font-medium border-gray-300 hover:border-b-2"
@@ -231,27 +230,26 @@
         <!-- Mobile menu, show/hide based on menu state. -->
         <div class="sm:hidden" id="mobile-menu">
           <div class="space-y-1 px-2 pt-2 pb-3">
-            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
             <a
-              href="#"
-              class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white"
+              href="index.html"
+              class=" "
               aria-current="page"
-              >Dashboard</a
+              >Home</a
             >
             <a
-              href="#"
-              class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-              >Team</a
+              href="/Html/contact.html"
+              class="px-1 font-medium border-gray-300 hover:border-b-2"
+              >Contact</a
             >
             <a
-              href="#"
-              class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-              >Projects</a
+              href="/Html/about.html"
+              class="px-1 font-medium border-gray-300 hover:border-b-2"
+              >About</a
             >
             <a
-              href="#"
-              class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-              >Calendar</a
+              href="/Html/signup.html"
+              class="px-1 font-medium border-gray-300 hover:border-b-2"
+              >Sign Up</a
             >
           </div>
         </div>
@@ -1051,8 +1049,7 @@
     </footer>
 
     <script type="module" src="../scripts/exclusive.js"></script>
-
-
+    <script type="module" src="../data/products.js"></script>
     <script
       type="module"
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
